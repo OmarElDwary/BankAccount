@@ -2,7 +2,10 @@ abstract class Account {
   int _accountId;
   double _accountBalance;
 
+  // create constructors and initialize the balance to be 0 by default;
   Account(this._accountId, [this._accountBalance = 0]);
+
+  Account.startingBalance(this._accountId) : _accountBalance = 0;
 
   void setAccountId(int id) {
     _accountId = id;
@@ -18,9 +21,13 @@ abstract class Account {
 
   void withdraw(double money) {
     if (_accountBalance - money >= 0) {
+      // ensure that the user have available balance;
       _accountBalance -= money;
-    } else {
+      print('successfull withdraw of $money');
+    } else if (money <= 0) {
       print('insufficient funds');
+    } else {
+      print('invalid input');
     }
   }
 

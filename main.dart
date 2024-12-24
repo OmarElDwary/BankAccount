@@ -1,8 +1,9 @@
 import 'account.dart';
 
 void main() {
-  UserAccount user1 = UserAccount(1213414);
-  Admin mainAdmin = Admin('omar', 102030);
+  Admin mainAdmin = Admin('omar', 102030); // instance of admin
+  // let the admin create the account
+  UserAccount user1 = mainAdmin.createAccount(12356);
   // try deposit
   user1.deposit(10000);
   print(user1.getBalance());
