@@ -4,6 +4,7 @@ void main() {
   Admin mainAdmin = Admin('omar', 102030); // instance of admin
   // let the admin create the account
   UserAccount user1 = mainAdmin.createAccount(12356);
+  UserAccount account1 = UserAccount(901030, 500.0);
   // try deposit
   user1.deposit(10000);
   print(user1.getBalance());
@@ -22,4 +23,11 @@ void main() {
   //test admin ability to create new user accounts
   UserAccount newUser = mainAdmin.createAccount(21234567891234);
   print(newUser.displayAccountInfo());
+  // test account1
+  print(account1.getAccountId());
+  account1.withdraw(1000);
+  print(account1.getBalance());
+  account1.withdraw(0);
+  print(account1.getBalance());
+  print(account1.displayAccountInfo());
 }

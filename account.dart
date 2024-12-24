@@ -20,11 +20,13 @@ abstract class Account {
   }
 
   void withdraw(double money) {
-    if (_accountBalance - money >= 0) {
+    if (money <= 0) {
+      print('Amount must be greater than 0');
+    } else if (_accountBalance - money >= 0) {
       // ensure that the user have available balance;
       _accountBalance -= money;
       print('successfull withdraw of $money');
-    } else if (money <= 0) {
+    } else if (_accountBalance - money < 0) {
       print('insufficient funds');
     } else {
       print('invalid input');
